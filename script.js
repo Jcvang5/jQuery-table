@@ -4,6 +4,17 @@ $( document ).ready(function() {
     $("th").css("font-style", "italic");
 
     $("td:nth-child(odd)").css("background-color", "lightblue");
-    $("td:nth-child(even)").css("background-color", "tomato");
+    checkCost();
+
+    function checkCost(){
+        for(var i = 1; i <= $("tr").length; i++){
+            var item = $("tr:nth-child(" + i +") td:nth-child(2)");
+            var cost = parseFloat(item.text());
+
+            if (cost > 10){
+                item.css("background-color", "tomato");
+            }
+        }
+    }
 
     }); 
